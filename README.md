@@ -1,5 +1,5 @@
 # skills
-## Dependencies
+## 1. Dependencies
 ### Node.js
 ```
 npm install -g npm@11.16.0
@@ -158,7 +158,7 @@ All the way down: Yes
 
 
 
-## Skill Installation Locations
+## 2. Skill Installation Locations
 
 Claude Code supports multiple locations for installing Skills. The best choice depends on how you plan to use and share them.
 
