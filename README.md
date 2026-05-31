@@ -1,9 +1,12 @@
 # skills
 ## Dependencies
-- Claude Code
 - node.js
 ```
 npm install -g npm@11.16.0
+```
+- Claude Code
+```
+npm install -g @anthropic-ai/claude-code
 ```
 - python
 - Anthropics official skill-creator
