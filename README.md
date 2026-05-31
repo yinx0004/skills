@@ -155,7 +155,10 @@ All the way down: Yes
 │
 └  Done!  Review skills before use; they run with full agent permissions.
 ```
-
+If it was installed in ~/.agents/skills/skill-creator, you can move it to the Claude skill folder
+```
+cp -pr ~/.agents/skills/skill-creator ~/.claude/skills
+```
 
 
 ## 2. Skill Installation Locations
@@ -234,3 +237,157 @@ As a general rule:
 - Use **Project-Level Skills** when the Skill should be shared with other team members.
 - Use **Global-Level Skills** when the Skill is part of your personal toolkit and should work across all projects.
 - Use **Temporary Imports** when evaluating or testing a Skill before deciding where to install it permanently.
+
+
+## 3. What Is a Skill?
+
+A Skill is a reusable capability package that extends an AI agent with specialized knowledge, workflows, scripts, templates, and supporting resources.
+
+Each Skill is organized as a directory with a predefined structure:
+
+```text
+skill-name/
+├── SKILL.md       # Required: Skill definition and instructions
+├── scripts/       # Optional: Executable scripts (Node.js, Python, Shell, etc.)
+├── references/    # Optional: Reference documents loaded on demand
+└── assets/        # Optional: Static resources and templates
+```
+
+---
+
+## SKILL.md
+
+The core definition file of a Skill.
+
+This file typically contains:
+
+- **name**: Skill name
+- **description**: Brief description of the Skill
+- **body**: Detailed instructions, workflows, and guidance
+
+**Example**
+
+```markdown
+name: mysql-risk-analysis
+
+description: Analyze MySQL risk inspection results and generate governance recommendations.
+
+body:
+- Parse inspection records
+- Identify high-risk items
+- Generate remediation suggestions
+- Produce executive summaries
+```
+
+**Purpose**
+
+- Defines when the Skill should be used
+- Provides instructions for the AI agent
+- Acts as the entry point of the Skill
+
+---
+
+## scripts/
+
+Contains executable code used by the Skill.
+
+Typical languages include:
+
+- Python
+- Node.js / TypeScript
+- Shell scripts
+- Go binaries
+
+**Example**
+
+```text
+scripts/
+├── analyze.py
+├── generate_report.py
+└── notify.sh
+```
+
+**Purpose**
+
+- Data processing
+- Automation workflows
+- External system integration
+- Report generation
+
+---
+
+## references/
+
+Contains reference documentation that can be loaded when needed.
+
+**Example**
+
+```text
+references/
+├── mysql-best-practices.md
+├── incident-playbook.md
+└── architecture-guide.pdf
+```
+
+**Purpose**
+
+- Provide domain knowledge
+- Store operating procedures
+- Supply implementation examples
+- Reduce prompt size by loading content only when required
+
+---
+
+## assets/
+
+Contains static resources used by the Skill.
+
+**Example**
+
+```text
+assets/
+├── report-template.md
+├── incident-template.docx
+├── dashboard.json
+└── logo.png
+```
+
+**Purpose**
+
+- Document templates
+- Configuration files
+- Static datasets
+- Images and other supporting resources
+
+---
+
+## Example Skill Structure
+
+```text
+mysql-risk-governance/
+├── SKILL.md
+├── scripts/
+│   ├── baseline_analysis.py
+│   ├── trend_analysis.py
+│   └── generate_report.py
+├── references/
+│   ├── mysql-inspection-standard.md
+│   ├── governance-process.md
+│   └── incident-playbook.md
+└── assets/
+    ├── daily-report-template.md
+    └── weekly-summary-template.md
+```
+
+---
+
+## Summary
+
+| Component | Required | Purpose |
+|------------|----------|---------|
+| SKILL.md | Yes | Defines the Skill and its behavior |
+| scripts/ | No | Stores executable code and automation logic |
+| references/ | No | Stores reference materials loaded on demand |
+| assets/ | No | Stores templates, static files, and resources |
+
+At minimum, a Skill only requires a `SKILL.md` file. The `scripts/`, `references/`, and `assets/` directories are optional and should be added only when needed.
