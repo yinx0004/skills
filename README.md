@@ -1,15 +1,15 @@
 # skills
 ## Dependencies
-- node.js
+### Node.js
 ```
 npm install -g npm@11.16.0
 ```
-- Claude Code
+### Claude Code
 ```
 npm install -g @anthropic-ai/claude-code
 ```
-- python
-- Anthropics official skill-creator
+### Python
+### Anthropics official skill-creator
 ```
 npx skills add https://github.com/anthropics/skills --skill skill-creator
 ```
@@ -155,3 +155,80 @@ All the way down: Yes
 │
 └  Done!  Review skills before use; they run with full agent permissions.
 ```
+
+## Skill Installation Locations
+
+Claude Code supports multiple locations for installing Skills. The best choice depends on how you plan to use and share them.
+
+### Project-Level Skills (Recommended for Team Collaboration)
+
+Install Skills inside your project repository when they are intended to be shared across a team. This approach allows Skills to be version-controlled alongside the project, ensuring that all contributors use the same set of capabilities and prompts.
+
+**Location**
+
+```text
+<project-root>/.claude/skills/
+```
+
+**Best for**
+
+- Team collaboration
+- Shared engineering workflows
+- Project-specific automation
+- Version-controlled Skill management
+
+---
+
+### Global-Level Skills (Recommended for Personal Use)
+
+Install Skills globally when you want them to be available across all Claude Code projects on your machine. This is the preferred option for personal productivity Skills that you use regularly.
+
+**Location**
+
+```text
+~/.claude/skills/
+```
+
+**Best for**
+
+- Personal workflows
+- Frequently used Skills
+- Cross-project productivity enhancements
+- Individual customization
+
+---
+
+### Temporary Skill Import (Recommended for Testing)
+
+For quick experiments, demonstrations, or validation, Skills can be imported directly into a Claude conversation. No installation is required, but the Skill is only available during the current session.
+
+**Scope**
+
+```text
+Current conversation only
+```
+
+**Best for**
+
+- Testing new Skills
+- Proof-of-concept demonstrations
+- One-time usage
+- Rapid iteration
+
+---
+
+### Recommendations
+
+| Use Case | Recommended Location |
+|-----------|---------------------|
+| Team collaboration | `<project-root>/.claude/skills/` |
+| Personal daily use | `~/.claude/skills/` |
+| Testing and experimentation | Temporary Import |
+
+### Summary
+
+As a general rule:
+
+- Use **Project-Level Skills** when the Skill should be shared with other team members.
+- Use **Global-Level Skills** when the Skill is part of your personal toolkit and should work across all projects.
+- Use **Temporary Imports** when evaluating or testing a Skill before deciding where to install it permanently.
