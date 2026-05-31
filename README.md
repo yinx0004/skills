@@ -156,6 +156,8 @@ All the way down: Yes
 └  Done!  Review skills before use; they run with full agent permissions.
 ```
 
+
+
 ## Skill Installation Locations
 
 Claude Code supports multiple locations for installing Skills. The best choice depends on how you plan to use and share them.
